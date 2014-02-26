@@ -1,9 +1,9 @@
 var canvas = CE.defines("canvas_id").
-        extend(Hit).
-        ready(function() {
-            canvas.Scene.call("MyScene");
-        });
-            
+    extend(Hit).
+    ready(function() {
+        canvas.Scene.call("MyScene");
+    });
+
 canvas.Scene.New({
     name: "MyScene",
 
@@ -18,10 +18,12 @@ canvas.Scene.New({
             "silver_box": "images/second.png"
         }
     },
-    
+
     ready: function(stage) {
         var self = this;
-        
+    },
+
+    render: function(stage) {
         function _black(x, y) {
             var entity = Class.New("Entity", [stage]);
             entity.rect(641);
@@ -48,25 +50,34 @@ canvas.Scene.New({
             stage.append(entity.el);
             return entity;
         }
-        
-        this.box1 = _black(0, 0);
-        this.box3 = _green(1283, 0);
-        this.box2 = _silver(642, 0);
-        //this.box2 = _entity(200, 50);
-        
-    },
-    render: function(stage) {
 
-//        this.box1.move(2); // Position X + 2
-        
-//        this.box2.hit([this.box1], function(state, el) {
-//            if (state == "over") {
-//                el.opacity = 0.5;
-//            }
-//            else {
-//                el.opacity = 1;
-//            }
-//        });
+        var param = $('#colour').val();
+        switch (param) {
+            case '':
+                stage.empty();
+                $('#first').hide();
+                $('#second').hide();
+                $('#third').hide();
+                break;
+            case 'first':
+                this.box1 = _black(0, 0);
+                $('#first').show();
+                $('#second').hide();
+                $('#third').hide();
+                break;
+            case 'second':
+                this.box2 = _silver(0, 0);
+                $('#first').hide();
+                $('#second').show();
+                $('#third').hide();
+                break;
+            case 'third':
+                this.box3 = _green(0, 0);
+                $('#first').hide();
+                $('#second').hide();
+                $('#third').show();
+                break;
+        }
         stage.refresh();
     }
 });

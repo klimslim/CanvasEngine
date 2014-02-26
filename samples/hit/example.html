@@ -2,7 +2,33 @@
 <title>Collision Example - Canvas Engine</title>
 <meta charset='utf-8'>
 <script src="js/canvasengine-latest.all.min.js"></script>
+<script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
 
 <!-- set width and height -->
-<canvas id="canvas_id" width="1923" height="641"></canvas>
+    <div style="float: left; padding-right: 10px;">
+        Какого цвета стены?<br/>
+        <select id="colour">
+            <option value="" selected></option>
+            <option value="first">Чёрный</option>
+            <option value="second">Серебристый</option>
+            <option value="third">Зелёный</option>
+        </select>
+    </div>
+    <div id="first" style="display: none;">
+        Вы около лифта?<br/>
+        <select id="black" onchange="escapeFromFirst()">
+            <option value="lift">Да</option>
+            <option value="stairs">Нет</option>
+        </select>
+    </div>
+    <div id="second" style="display: none;">
+        <select id="silver" onchange="escapeFromSecond()">
+        </select>
+    </div>
+    <div id="third" style="display: none;">
+        <select id="green" onchange="escapeFromThird()">
+        </select>
+    </div>
+    <div style="float: none;"></div>
+<canvas id="canvas_id" width="641" height="641"></canvas>
