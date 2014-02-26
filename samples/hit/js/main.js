@@ -10,6 +10,9 @@ canvas.Scene.New({
     materials: {
         images: {
             "lift_lb": "images/lift_lb.png",
+            "lift_rt": "images/lift_rt.png",
+            "stairs_lt": "images/stairs_lt.png",
+            "stairs_rb": "images/stairs_rb.png",
             "black_box": "images/first.png",
             "green_box": "images/third.png",
             "silver_box": "images/second.png"
