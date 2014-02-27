@@ -8,7 +8,7 @@
 <!-- set width and height -->
     <div style="float: left; padding-right: 10px;">
         Какого цвета стены?<br/>
-        <select id="colour">
+        <select id="colour" onchange="colour_changed=true;">
             <option value="" selected></option>
             <option value="first">Чёрный</option>
             <option value="second">Серебристый</option>
@@ -16,14 +16,21 @@
         </select>
     </div>
     <div id="first" style="display: none;">
-        Вы около лифта?<br/>
-        <select id="black" onchange="escapeFromFirst()">
-            <option value="lift">Да</option>
-            <option value="stairs">Нет</option>
+        Вы видите лифт или лестницу?<br/>
+        <select id="black" onchange="colour_changed=true;">
+            <option value="" selected></option>
+            <option value="lift">Да, вижу лифт</option>
+            <option value="stairs">Да, вижу лестницу</option>
+            <option value="no">Нет</option>
         </select>
     </div>
     <div id="second" style="display: none;">
-        <select id="silver" onchange="escapeFromSecond()">
+        Вы видите лифт или комнату?<br/>
+        <select id="silver" onchange="colour_changed=true;">
+            <option value="" selected></option>
+            <option value="lift">Да, вижу лифт</option>
+            <option value="stairs">Да, вижу лестницу</option>
+            <option value="no">Нет</option>
         </select>
     </div>
     <div id="third" style="display: none;">
@@ -31,4 +38,5 @@
         </select>
     </div>
     <div style="float: none;"></div>
+    <br/>
 <canvas id="canvas_id" width="641" height="641"></canvas>
